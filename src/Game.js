@@ -7,11 +7,11 @@ export default class Game extends React.Component{
     smoke1o: 0,
     smoke2t: 0,
     smoke2o: 0,
-    // scrollval:0,
+    s1: '',
+    s2: '',
   }
 
   listenScrollEvent = e => {
-    // this.setState({scrollval: window.scrollY})
     var temp, slope
     //------------------------------------------
     if(window.scrollY > 0 && window.scrollY < 200){
@@ -76,13 +76,11 @@ export default class Game extends React.Component{
       }
       this.setState({smoke2o: 0.4*temp, smoke2t: 150*slope})
     }
+    if(window.scrollY < 900){
+      this.setState({s1: '', s2: '',})
+    }
     if(window.scrollY > 900){
-      this.setState({
-        smoke1t:0,
-        smoke1o:0,
-        smoke2t:0,
-        smoke2o:0.
-      })
+      this.setState({s1: 'anim-smokey 2s ease infinite', s2: 'anim-smokey 2.6s ease infinite',})
     }
   }
 
@@ -91,8 +89,8 @@ export default class Game extends React.Component{
   }
 
   render() {
-    const styles1 = {transform: `translate(0px, -${this.state.smoke1t}px)`, opacity: `${this.state.smoke1o}`}; 
-    const styles2 = {transform: `translate(0px, -${this.state.smoke2t}px)`, opacity: `${this.state.smoke2o}`};
+    const styles1 = {transform: `translate(0px, -${this.state.smoke1t}px)`, opacity: `${this.state.smoke1o}`, animation: `${this.state.s1}`}; 
+    const styles2 = {transform: `translate(0px, -${this.state.smoke2t}px)`, opacity: `${this.state.smoke2o}`, animation: `${this.state.s2}`};
     return(
       <div>
         <div className="box-cover"></div>

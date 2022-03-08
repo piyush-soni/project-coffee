@@ -1,7 +1,5 @@
 .box1{
   position: fixed;
-  /*top: 45vh;*/
-  /*left: 40vw;*/
   z-index: 1;
   width: 90%;
   height: 100%;
@@ -32,6 +30,21 @@
 
 #smoke2{
   /*transform: translateY(-90px);*/
+}
+
+@keyframes anim-smokey{
+  0%{
+    transform: translate(0,0);
+    opacity: 0;
+  }
+  10%{
+    transform: translate(0,0);
+    opacity: 0.4;
+  }
+  100%{
+    transform: translate(0, -150px);
+    opacity: 0;
+  }
 }
 
 #main{
